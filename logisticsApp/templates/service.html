@@ -1,0 +1,177 @@
+{% extends "main.html"%}
+{% load static %}
+{% block content %}
+
+
+
+	<!--PreLoader-->
+	    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    <!--PreLoader Ends-->
+
+	<!-- header -->
+<nav class="navbar navbar-expand-lg navbar-light  fixed-top " style="background-color:#051922  ;">
+  <a style=" color: orange;" class="navbar-brand" href="#">Navbar w/ text</a>
+  <button style="background-color:#F28123;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span  class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+
+        <li class="current-list-item"><a  style=" color: white; margin: 20px"  style=" color: orange;" href="{% url 'home' %}"><b>Home</b></a></li>
+		<li><a style=" color: white; margin: 20px" href="{% url 'about' %}"><b>About Us</b></a></li>
+
+        <li><a style=" color: white; margin: 20px"href="{% url 'contact' %}"><b>Contact Us</b></a></li>
+		<li><a style=" color: white; margin: 20px" href="{% url 'ship_a_parcel' %}"><b>Ship a Parcel</b></a>
+		<li><a style=" color: white; margin: 20px" href="{% url 'track_a_parcel' %}"><b>Track a parcel</b></a>
+	</li>
+		<li>
+			<a style=" color: orange; white; margin: 20px" href="{% url 'services' %}"><b>Services</b></a>
+		</li>
+		<li>
+
+				<a style=" color: white; margin: 20px" class="mobile-hide shopping-cart" href="{% url 'faqs' %}"><b>FAQs</b></i></a>
+
+		</li>
+    </ul>
+   <span>
+		    {% if user.is_authenticated %}
+		<li ><a style="color:white;" href="{% url 'logout' %}"><b>Logout</b></a></li>
+      {%else%}
+		<li ><a style="color:white;" href="{% url 'login' %}"><b>Login</b></a></li>
+      {% endif %}
+
+    </span>
+  </div>
+</nav>
+	<!-- end header -->
+
+
+
+	<!-- search area -->
+	<div class="search-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<h3>Search For:</h3>
+							<input type="text" placeholder="Keywords">
+							<button type="submit">Search <i class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end search arewa -->
+
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>We Are Very Eager To Serve You </p>
+						<h1>Our Services</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<!-- latest news -->
+	<div class="latest-news mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="single-latest-news">
+						<a href="single-news.html"><div class="latest-news-bg news-bg-01"></div></a>
+						<div class="news-text-box">
+							<h3><a href="single-news.html">Ground Transport</a></h3>
+
+							<p class="excerpt">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="single-latest-news">
+						<a href="single-news.html"><div class="latest-news-bg news-bg-02"></div></a>
+						<div class="news-text-box">
+							<h3><a href="single-news.html">Cargo</a></h3>
+
+							<p class="excerpt">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="single-latest-news">
+						<a href="single-news.html"><div class="latest-news-bg news-bg-03"></div></a>
+						<div class="news-text-box">
+							<h3><a href="single-news.html">WAREHOUSING</a></h3>
+							<p class="excerpt">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="single-latest-news">
+						<a href="single-news.html"><div class="latest-news-bg news-bg-04"></div></a>
+						<div class="news-text-box">
+							<h3><a href="single-news.html">LOGISTIC SERVICE</a></h3>
+
+							<p class="excerpt">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="single-latest-news">
+						<a href="single-news.html"><div class="latest-news-bg news-bg-05"></div></a>
+						<div class="news-text-box">
+							<h3><a href="single-news.html">STORAGE</a></h3><p class="excerpt">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="single-latest-news">
+						<a href="single-news.html"><div class="latest-news-bg news-bg-06"></div></a>
+						<div class="news-text-box">
+							<h3><a href="single-news.html">DOOR-TO-DOOR DELIVERY</a></h3>
+
+							<p class="excerpt">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus laborum autem, dolores inventore, beatae nam.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	<!-- end latest news -->
+
+{% include "footer.html" %}
+
+{% endblock content %}
