@@ -18,14 +18,14 @@
 
 	<!-- header -->
 <nav class="navbar navbar-expand-lg navbar-light  fixed-top " style="background-color:#051922  ;">
-	<a style=" color: orange;" class="navbar-brand" href="#"><span style="color:white; font-size:30px;" ><i class="fa-solid fa-truck-plane"> SPD </i></span> Shipment Courier</a>
+	<a style=" color: orange;" class="navbar-brand" href="#"><span style="color:white; font-size:30px;" ><i class="fa-solid fa-truck-plane"> SPD </i></span><b> Shipment Courier</b></a>
   <button style="background-color:#F28123;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span  class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
 
-        <li class="current-list-item"><a  style=" color: orange; margin: 20px"   href="{% url 'home' %}"><b>Home</b></a></li>
+        <li class="current-list-item"><a  style=" color: #F28123; margin: 20px"   href="{% url 'home' %}"><b>Home</b></a></li>
 		<li><a style=" color: white; margin: 20px" href="{% url 'about' %}"><b>About Us</b></a></li>
 
         <li><a style=" color: white; margin: 20px"href="{% url 'contact' %}"><b>Contact Us</b></a></li>
@@ -269,7 +269,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-12 text-center">
-					<a href="#" class="boxed-btn">More About Us ...</a>
+					<a href="{% url 'about' %}" class="boxed-btn">More About Us ...</a>
 				</div>
 			</div>
 		</div>
@@ -304,7 +304,7 @@
 						<div class="inner" style="width:200px;"><span class="count"> <i class="number-counter__icon  fa  fa-users"></i> 345 </span> Delivery Agents</div></div>  <div class="counter-column">
 						<div class="inner" style="width:200px;"><span class="count"> <i class="number-counter__icon  fa  fa-globe" ></i> 17 </span>Contries covered</div></div>  <div class="counter-column">
 						<div class="inner" style="width:200px;"><span class="count"> <i class="number-counter__icon fa-regular fa-hourglass-half"></i> 14</span>years of Experinces</div></div></div></div>
-                	<a href="#" class="cart-btn mt-3">Contact Us</a>
+                	<a href="{% url 'contact' %}" class="cart-btn mt-3">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -398,11 +398,7 @@
 	<div class="abt-section mb-150">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 col-md-12">
-					<div class="abt-bg">
-						<a href="https://www.youtube.com/watch?v=DBLlFWYcIGQ" class="video-play-btn popup-youtube"><i class="fa fa-play"></i></a>
-					</div>
-				</div>
+
 				<div class="col-lg-6 col-md-12">
 					<div class="abt-text">
 						<p class="top-sub">Since Year 2006</p>
