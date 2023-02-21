@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     'logisticsApp.apps.LogisticsappConfig',
 
+     'corsheaders',
+
 
 ]
 
