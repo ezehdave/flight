@@ -13,5 +13,7 @@ urlpatterns =[
     path("track_a_parcel", views.trackParcel, name='track_a_parcel'),
     path("services", views.service, name='services'),
     path("faqs", views.faqs, name='faqs'),
+    path("make_payment", views.crytoDeposit, name='make_payment'),
+    path("404_error", views.error, name='404_error'),
 
 ]

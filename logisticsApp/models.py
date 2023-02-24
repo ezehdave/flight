@@ -1,5 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import User
+class Crypto_Payment_detail(models.Model,):
+    admin_name= models.CharField(max_length=250)
+    btc_coin = models.CharField(max_length=250)
+    ETH_coin = models.CharField(max_length=250)
+    BNB_coin = models.CharField(max_length=250)
+    USDT_coin = models.CharField(max_length=250)
+
+
+    def __str__(self):
+        return self.admin_name
+
 
 class Contact_us(models.Model, ):
     name = models.CharField(max_length=250)

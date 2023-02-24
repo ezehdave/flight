@@ -19,7 +19,7 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
 
-        <li ><a style=" color: white;  href="{% url 'home' %}"><b>Home</b></a></li>
+        <li ><a style=" color: white; margin: 20px" href="{% url 'home' %}"><b>Home</b></a></li>
 		<li><a style=" color: white; margin: 20px" href="{% url 'about' %}"><b>About Us</b></a></li>
 
         <li><a style=" color: white; margin: 20px"href="{% url 'contact' %}"><b>Contact Us</b></a></li>
@@ -33,6 +33,13 @@
 			<a  style=" color: #F28123; margin: 20px"   class="mobile-hide shopping-cart" href="{% url 'faqs' %}"><b>FAQs</b></i></a>
 
 		</li>
+			 {% if user.is_authenticated %}
+		<li>
+
+				<a  style=" color: white; margin: 20px" class="mobile-hide shopping-cart" href="{% url 'make_payment' %}"><b>Make payment</b></i></a>
+
+		</li>
+		 {% endif %}
     </ul>
     <span>
 		    {% if user.is_authenticated %}

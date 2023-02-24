@@ -1,0 +1,240 @@
+{% extends "main.html"%}
+{% load static %}
+{% block content %}
+
+	<!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
+
+
+	<!-- header -->
+<nav class="navbar navbar-expand-lg navbar-light  fixed-top " style="background-color:#051922  ;">
+ <a style=" color: #F28123;" class="navbar-brand" href="#"><span style="color:white; font-size:30px;" ><i class="fa-solid fa-truck-plane"> SPD </i></span><b>Shipment Courier</b></a>
+  <button style="background-color:#F28123;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span  class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+
+        <li><a style=" color: white; margin: 20px" href="{% url 'home' %}"><b>Home</b></a></li>
+		<li><a style=" color: white; margin: 20px" href="{% url 'about' %}"><b>About Us</b></a></li>
+
+        <li><a style=" color: white; margin: 20px"href="{% url 'contact' %}"><b>Contact Us</b></a></li>
+		<li><a style=" color: white; margin: 20px" href="{% url 'ship_a_parcel' %}"><b>Ship a Parcel</b></a>
+		<li><a style=" color: white; margin: 20px"href="{% url 'track_a_parcel' %}"><b>Track a parcel</b></a>
+	</li>
+		<li>
+			<a style=" color: white; margin: 20px" href="{% url 'services' %}"><b>Services</b></a>
+		</li>
+		<li>
+
+				<a style=" color: white; margin: 20px" class="mobile-hide shopping-cart" href="{% url 'faqs' %}"><b>FAQs</b></i></a>
+
+		</li>
+		 {% if user.is_authenticated %}
+		<li>
+
+				<a style=" color: #F28123; margin: 20px"  class="mobile-hide shopping-cart" href="{% url 'make_payment' %}"><b>Make payment</b></i></a>
+
+		</li>
+		 {% endif %}
+
+    </ul>
+
+      <span>
+		    {% if user.is_authenticated %}
+		<li ><a style="color:white;" href="{% url 'logout' %}"><b>Logout</b></a></li>
+      {%else%}
+		<li ><a style="color:white;" href="{% url 'login' %}"><b>Login</b></a></li>
+      {% endif %}
+
+    </span>
+  </div>
+</nav>
+	<!-- end header -->
+
+
+		<!-- breadcrumb-section -->
+		<div class="breadcrumb-section breadcrumb-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 offset-lg-2 text-center">
+						<div class="breadcrumb-text">
+							<p>Make payment For logistics </p>
+
+							<h1>MAKE PAYMENT</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end breadcrumb section -->
+		<!-- error section -->
+	<div class="latest-news pt-150 pb-150">
+		<div class="container">
+<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">
+						<h4><span class="orange-text">WALLET </span> ADDRESSES</h4>
+						<h5>copy your wallet address and make payment</h5>
+						<form action="" method="POST" id="fruitkha-contact" >
+							                    {% csrf_token %}
+                            <div class="form-title">
+
+
+					</div>
+
+								 {% if messages %}
+							<div class="alert" style="margin:10px 0px;">
+								{% for message in messages %}
+                                  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                 <strong>Sorry  {{message}}</strong>
+                             </div>
+
+                             {% endfor %}
+
+								   {% endif %}
+
+
+
+	          <div class="cart-table-wrap" style="margin:10px 0px;">
+
+						<table class="cart-table">
+							<thead class="cart-table-head">
+								<tr class="table-head-row">
+									<th class="product-remove"></th>
+									<th class="product-image">Wallet Type</th>
+									<th class="product-name">Wallet Adress</th>
+
+								</tr>
+							</thead>
+                                             {% for wallet in wallets %}
+							<tbody>
+								<tr class="table-body-row">
+									<td class="product-remove"><button style="background-color:#F28123" onclick="myFunctionfour()"><i class="fa fa-copy" > copy</i></button></td>
+									<td class="product-name">Bitcoin</td>
+									<td class="product-name">
+										<input style="border:none; width:100%; text-align: center;"  type="text" value="{{wallet.btc_coin}}" id="myInput1" readonly></td>
+
+								</tr>
+								<tr class="table-body-row">
+									<td class="product-remove"><button style="background-color:#F28123" onclick="myFunctionfour()"><i class="fa fa-copy" > copy</i></button></td>
+									<td class="product-name">Ethirium</td>
+									<td class="product-name">
+										<input style="border:none; width:100%; text-align: center;"  type="text" value="{{wallet.ETH_coin}}" id="myInput2" readonly></td>
+
+								</tr>
+								<tr class="table-body-row">
+									<td class="product-remove"><button style="background-color:#F28123" onclick="myFunctionfour()"><i class="fa fa-copy" > copy</i></button></td>
+									<td class="product-name">USDT</td>
+									<td class="product-name">
+										<input style="border:none; width:100%; text-align: center;"  type="text" value="{{wallet.USDT_coin}}" id="myInput3" readonly></td>
+
+								</tr>
+								<tr class="table-body-row">
+									<td class="product-remove"><button style="background-color:#F28123" onclick="myFunctionfour()"><i class="fa fa-copy" > copy</i></button></td>
+									<td class="product-name">BNB (bsc)</td>
+									<td class="product-name">
+										<input style="border:none; width:100%; text-align: center;"  type="text" value="{{wallet.BNB_coin}}" id="myInput4" readonly></td>
+
+								</tr>
+
+							</tbody>
+							{% endfor %}
+						</table>
+					</div>
+							<div style="margin-top:100px">
+								<h4><span class="orange-text">Make </span> Payment using CashApp<img style="height:50px; margin:10px" src="{% static 'images/cashapp.png'%}"></h4>
+
+								<a href="{% url '404_error' %}"><input type="button" value="make payment using CashApp"> </a>
+							</div>
+							<div style="margin-top:100px">
+								<h4><span class="orange-text">Make </span> Payment using Zelle<img style="height:50px; margin:10px" src="{% static 'images/zelle_logo.svg.png'%}"></h4>
+
+								<a href="{% url '404_error' %}"><input value="make payment using Zelle" type="button"></a>
+							</div>
+
+						</form>
+
+
+
+
+
+
+
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+<script>
+    function myFunctionone() {
+      // Get the text field
+      var copyText = document.getElementById("myInput1");
+
+      // Select the text field
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // For mobile devices
+
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(copyText.value);
+
+      // Alert the copied text
+      alert("wallet coppied: " + copyText.value);
+    }
+    function myFunctiontwo() {
+      // Get the text field
+      var copyText = document.getElementById("myInput2");
+
+      // Select the text field
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // For mobile devices
+
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(copyText.value);
+
+      // Alert the copied text
+      alert("wallet coppied: " + copyText.value);
+    }
+    function myFunctionthree() {
+      // Get the text field
+      var copyText = document.getElementById("myInput3");
+
+      // Select the text field
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // For mobile devices
+
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(copyText.value);
+
+      // Alert the copied text
+      alert("wallet coppied: " + copyText.value);
+    }
+    function myFunctionfour() {
+      // Get the text field
+      var copyText = document.getElementById("myInput4");
+
+      // Select the text field
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); // For mobile devices
+
+      // Copy the text inside the text field
+      navigator.clipboard.writeText(copyText.value);
+
+      // Alert the copied text
+      alert("wallet coppied: " + copyText.value);
+    }
+
+    </script>
+
+{% include "footer.html" %}
+
+{% endblock content %}

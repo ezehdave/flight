@@ -9,6 +9,8 @@ from .form import *
 
 
 # Create your views here.
+from .models import Crypto_Payment_detail
+
 
 def loginpage(request):
     page = "login"
@@ -128,3 +130,13 @@ def faqs(request):
             return redirect("faqs")
     context = {"form": form}
     return render(request, 'faqs.html', context)
+
+def crytoDeposit(request):
+    wallets = Crypto_Payment_detail.objects.all()
+
+    context = {"wallets": wallets}
+    return render(request, 'crypto_deposit.html', context)
+
+def error(request):
+    context = {}
+    return render(request, '404.html', context)

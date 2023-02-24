@@ -35,6 +35,13 @@
 				<a style=" color: white; margin: 20px" class="mobile-hide shopping-cart" href="{% url 'faqs' %}"><b>FAQs</b></i></a>
 
 		</li>
+			 {% if user.is_authenticated %}
+		<li>
+
+				<a  style=" color: white; margin: 20px" class="mobile-hide shopping-cart" href="{% url 'make_payment' %}"><b>Make payment</b></i></a>
+
+		</li>
+		 {% endif %}
     </ul>
       <span>
 		    {% if user.is_authenticated %}
