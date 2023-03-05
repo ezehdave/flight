@@ -61,7 +61,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'flight.urls'
 
-CSRF_TRUSTED_ORIGINS = ['https://spdshipmentcourier.up.railway.app', ]
+CSRF_TRUSTED_ORIGINS = ['https://spdshipmentcourier.up.railway.app', 'https://www.spdshipment.com',]
 
 TEMPLATES = [
     {
