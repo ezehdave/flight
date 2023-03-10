@@ -86,7 +86,7 @@
 
 					</div>
 							<p>
-								<input style="margin:15px 0px;" type="text" placeholder="Enter Tracking Id" name="tracking_id" id="name">
+								<input style="margin:15px 0px; padding:5px 10px" type="text" placeholder="Enter Tracking Id" name="tracking_id" id="name">
 								<input type="submit" value="Track result" name="email" id="Track">
 							</p>
 								 {% if messages %}
@@ -132,6 +132,28 @@
 						</table>
 					</div>
 						</form>
+						<div class="container">
+
+							<div>
+								Delivery destination
+							</div>
+
+							{% for post in destination %}
+  <!-- completed -->
+    <div class="step active" style="text-align: start;">
+      <div class="v-stepper">
+        <div class="circle"></div>
+        <div class="line"></div>
+      </div>
+
+      <div class="content">
+       <h5>{{post.location}}</h5>
+	   <p>{{post.address}}</p>
+	   <p>{{post.date}}</p>
+      </div>
+  </div>
+							{% endfor %}
+
 
 
 

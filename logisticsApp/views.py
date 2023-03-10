@@ -6,6 +6,7 @@ from django.contrib import messages
 from .form import signUpForm
 import datetime
 from .form import *
+from . models import *
 
 
 # Create your views here.
@@ -98,22 +99,30 @@ def about(request):
 
 def trackParcel(request):
     results=""
+    destination=""
     if request.method == "POST":
         track_id = request.POST.get('tracking_id')
 
 
         try:
             results = Ship_booking.objects.get(tracking_id=track_id)
+            customer = request.user
+            destination = Delivery_destination.objects.filter(user=customer, delivery_status=False)
+
             if results.status == False:
-                results.status ="pending"
-            else:
-                results.status = "processed"
+                results.status ="active"
+
+            elif results.status == True:
+                results.status = "completed"
 
 
         except:
             messages.error(request, "Tracking Id does not exist")
 
-    context = {"results":results}
+
+
+
+    context = {"results":results,"destination":destination}
     return render(request, 'track-a-parcel.html', context)
 
 def service(request):

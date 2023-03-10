@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(Contact_us)
 admin.site.register(Ship_booking)
 admin.site.register(Crypto_Payment_detail)
+admin.site.register(Delivery_destination)
