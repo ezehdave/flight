@@ -10,18 +10,7 @@ class Crypto_Payment_detail(models.Model,):
 
     def __str__(self):
         return self.admin_name
-class Delivery_destination(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    location = models.CharField(max_length=250)
-    address = models.CharField(max_length=250)
-    date = models.CharField(max_length=250)
-    delivery_status = models.BooleanField(default=False, null=True, blank=False)
 
-    def __str__(self):
-        return self.location
-
-    class Meta:
-        ordering = ["-location"]
 
 
 
@@ -63,3 +52,15 @@ class Ship_booking(models.Model):
 
     def __str__(self):
         return self.senders_name
+class Delivery_destination(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    location = models.CharField(max_length=250)
+    address = models.CharField(max_length=250)
+    date = models.CharField(max_length=250)
+    delivery_status = models.BooleanField(default=False, null=True, blank=False)
+
+    def __str__(self):
+        return self.location
+
+    class Meta:
+        ordering = ["-location"]

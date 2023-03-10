@@ -106,8 +106,8 @@ def trackParcel(request):
 
         try:
             results = Ship_booking.objects.get(tracking_id=track_id)
-            customer = request.user
-            destination = Delivery_destination.objects.filter(user=customer, delivery_status=False)
+
+
 
             if results.status == False:
                 results.status ="active"
@@ -118,9 +118,14 @@ def trackParcel(request):
 
         except:
             messages.error(request, "Tracking Id does not exist")
+        try:
+            results = Ship_booking.objects.get(tracking_id=track_id)
+            customer = request.user
+            destination = Delivery_destination.objects.filter(user=customer, delivery_status=False)
 
 
-
+        except:
+            messages.error(request, "please login to see delivery details" )
 
     context = {"results":results,"destination":destination}
     return render(request, 'track-a-parcel.html', context)
