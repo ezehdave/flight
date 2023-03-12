@@ -1,6 +1,30 @@
 {% extends "main.html"%}
 {% load static %}
 {% block content %}
+<style>
+
+
+.col-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+   text-align:center;
+   margin:10px
+
+
+
+}
+
+.col {
+
+   padding:20px 10px;
+  text-align:center;
+}
+.color{
+    background-color:#efefef;
+}
+
+</style>
 
 	<!--PreLoader-->
     <div class="loader">
@@ -102,40 +126,79 @@
 
 
 
-	<div class="cart-table-wrap" style="margin:10px 0px;">
+							<div style="background-color:#efefef; padding:10px; margin:20px 0px">
+								<h4>Delivery Details</h4>
+							</div>
+                                     <div class="col-container">
+										  <div class="col " >
+											  <h5>Senders Details</h5>
+											  <h6>{{results.senders_name }}</h6>
+											  <h6>{{results.senders_phone_no }}</h6>
 
-						<table class="cart-table">
-							<thead class="cart-table-head">
-								<tr class="table-head-row">
-									<th class="product-remove"></th>
-									<th class="product-image">sender's_name</th>
-									<th class="product-name">sender's_phone_no</th>
-									<th class="product-price">receiver's_name</th>
-									<th class="product-quantity">receiver's_phone_no </th>
-									<th class="product-total">Estimated_parcel's_weight(KG)</th>
-									<th class="product-total">Status</th>
-								</tr>
-							</thead>
 
-							<tbody>
-								<tr class="table-body-row">
-									<td class="product-remove"><i class="fa-solid fa-circle-info"></i></td>
-									<td class="product-name">{{results.senders_name}}</td>
-									<td class="product-name">{{results.senders_phone_no}}</td>
-									<td class="product-price">{{results.receivers_name}}</td>
-									<td class="product-name">{{results.receivers_phone_no}}</td>
-									<td class="product-total">{{results.Estimated_parcels_weight}}</td>
-									<td class="product-total">{{results.status}}</td>
-								</tr>
+										  </div>
 
-							</tbody>
-						</table>
-					</div>
+
+
+										  <div class="col" >
+												<h5>Receivers Details</h5>
+										   <h6>{{results.receivers_name}} </h6>
+											   <h6>{{results.receivers_phone_no}} </h6>
+
+										  </div>
+										</div>
+
+
+                                     <div class="col-container color">
+											 	  <div class="col " >
+											  <h5>Senders Address</h5>
+											  <h6>{{results.senders_address}}</h6>
+											  <h6>{{results.senders_email  }}</h6>
+
+
+										  </div>
+
+
+
+										  <div class="col" >
+												<h5>receivers Address</h5>
+										   <h6>{{results.receivers_address}} </h6>
+											   <h6>{{results.receivers_email}} </h6>
+
+										  </div>
+										</div>
+							<div style="background-color:#efefef; padding:10px; margin:20px 0px">
+								<h4>Parcel Details</h4>
+							</div>
+
+                                    <div class="col-container">
+										  <div class="col " >
+											  <h5>Estimated_Weight</h5>
+											  <h6>{{results.Estimated_parcels_weight }}</h6>
+
+
+
+										  </div>
+
+
+
+										  <div class="col" >
+												<h5>Delivery Status</h5>
+										   <h6>{{results.status}} </h6>
+
+
+										  </div>
+										</div>
+
 						</form>
 
 						<div class="container">
+							<div style="background-color:rgb(6,150,215); padding:20px 10px; margin:20px 0px; color:white;" >
+								<h6 style="color:white;"><b>Tracking ID: {{results.tracking_id }}</b></h6>
+								<h6 style="color:white;"><b>Shipment Status: {{results.status }}<b/></h6>
+							</div>
 
-							<div style="background-color:#efefef; padding:10px;">
+							<div style="background-color:#efefef; padding:10px; margin:20px 0px">
 								<h4>Delivery destination</h4>
 							</div>
 

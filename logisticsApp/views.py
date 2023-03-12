@@ -106,14 +106,11 @@ def trackParcel(request):
 
         try:
             results = Ship_booking.objects.get(tracking_id=track_id)
-
-
-
-            if results.status == False:
-                results.status ="active"
-
-            elif results.status == True:
+            if results.status == True:
                 results.status = "completed"
+
+            else:
+                  results.status = "On Process"
 
 
         except:
@@ -122,6 +119,11 @@ def trackParcel(request):
             results = Ship_booking.objects.get(tracking_id=track_id)
             customer = request.user
             destination = Delivery_destination.objects.filter(user=customer, delivery_status=False)
+            if results.status == True:
+                results.status = "completed"
+
+            else:
+                results.status = "On Process"
 
 
         except:
