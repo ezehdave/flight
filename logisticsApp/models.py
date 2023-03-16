@@ -53,7 +53,7 @@ class Ship_booking(models.Model):
     def __str__(self):
         return self.senders_name
 class Delivery_destination(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    tracking_id = models.ForeignKey(Ship_booking, on_delete=models.CASCADE, null=True, blank=True)
     location = models.CharField(max_length=250)
     address = models.CharField(max_length=250)
     date = models.CharField(max_length=250)

@@ -117,8 +117,8 @@ def trackParcel(request):
             messages.error(request, "Tracking Id does not exist")
         try:
             results = Ship_booking.objects.get(tracking_id=track_id)
-            customer = request.user
-            destination = Delivery_destination.objects.filter(user=customer, delivery_status=False)
+
+            destination = Delivery_destination.objects.filter(tracking_id__tracking_id=track_id )
             if results.status == True:
                 results.status = "completed"
 
@@ -147,6 +147,7 @@ def faqs(request):
     context = {"form": form}
     return render(request, 'faqs.html', context)
 
+@login_required(login_url='login')
 def crytoDeposit(request):
     wallets = Crypto_Payment_detail.objects.all()
 
